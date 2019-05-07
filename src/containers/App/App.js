@@ -1,7 +1,7 @@
-import React, { Component } from './node_modules/react';
-import { connect } from './node_modules/react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { addMovies } from '../../actions'
-import Splash from '../components/Splash/Splash'
+import Splash from '../../components/Splash/Splash'
 
 class App extends Component {
 

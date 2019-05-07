@@ -1,4 +1,4 @@
-export const addMovies = (movies) => {
+export const addMovies = (movies) => ({
   type: 'ADD_MOVIES',
   movies
-}
+})
