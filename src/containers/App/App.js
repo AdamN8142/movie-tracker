@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Splash from '../../components/Splash/Splash'
+import Splash from '../Splash/Splash'
 
 export default class App extends Component {
 
