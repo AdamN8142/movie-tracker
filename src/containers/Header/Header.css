@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+
+
+.app-title {
+  text-align: center;
+  font-size: 80px;
+  font-family: 'Monoton', cursive;
+  color: rgb(155, 47, 155);
+  margin: 0;
+}
+
+.nav-bar {
+  text-align: center;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  height: 50px;
+
+}

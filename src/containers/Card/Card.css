@@ -1,4 +1,10 @@
 .movie-img { 
-  height: 300px;
-  width: 200px;
+  height: 450px;
+  width: 300px;
+  padding: 10px;
+  opacity: .7;
+}
+
+.movie-img:hover {
+  opacity: 1;
 }

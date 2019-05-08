@@ -1,5 +1,7 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  
+  justify-content: center;
+  background-image: linear-gradient(blanchedalmond,purple,green);
+
 }
