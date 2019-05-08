@@ -4,6 +4,7 @@ import Home from '../../components/Home/Home';
 import { Switch, Route } from 'react-router-dom';
 import { addMovies } from '../../actions';
 import { connect } from 'react-redux';
+import Header from '../Header/Header'
 
 class App extends Component {
 
@@ -11,7 +12,8 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route default path='/' component={Home} />
+          {/* <Route path ='/' component={Header} /> */}
+          <Route exact default path='/' component={Home} />
           <Route path='/signin' component={Login} />
         </Switch>
       </div>
