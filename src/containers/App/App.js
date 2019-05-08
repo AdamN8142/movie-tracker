@@ -12,7 +12,6 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route default path='/' component={Home} />
-          hi
           <Route path='/signin' component={Login} />
         </Switch>
       </div>
