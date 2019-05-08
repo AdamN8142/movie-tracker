@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { addMovies } from '../../actions';
 import { apiKey } from '../../utilities/apiKey.js';
 import Card from '../Card/Card'
+import './CardContainer.css'
 
 
   class CardContainer extends Component {
@@ -30,7 +31,7 @@ import Card from '../Card/Card'
 
   render(){ 
       return (
-        <div>
+        <div className = 'card-container'>
             {this.displayCards()}
         </div>
       )
