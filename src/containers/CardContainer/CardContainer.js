@@ -19,16 +19,14 @@ import Card from '../Card/Card'
   }
 
 
-  displayCards = () => {
+   displayCards = () => {
     return this.props.movies.map((movie) => {
-      return (
-         <Card {...movie}/>
-       )
-     })
+     return (
+        <Card movie={movie} key={movie.id}/>
+      )
+    })
   }
-   
-
-
+  
 
   render(){ 
       return (
@@ -36,7 +34,6 @@ import Card from '../Card/Card'
             {this.displayCards()}
         </div>
       )
-
   }
 }
 

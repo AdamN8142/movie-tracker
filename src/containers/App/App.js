@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Login from '../Login/Login'
 import Home from '../../components/Home/Home';
 import { Switch, Route } from 'react-router-dom';
-import { apiKey } from '../../utilities/apiKey.js';
 import { addMovies } from '../../actions';
 import { connect } from 'react-redux';
 
