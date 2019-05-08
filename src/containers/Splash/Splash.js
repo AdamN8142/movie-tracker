@@ -3,6 +3,7 @@ import { apiKey } from '../../utilities/apiKey.js';
 import { addMovies } from '../../actions';
 import { connect } from 'react-redux';
 
+
 class Splash extends Component {
 
   fetchMovies = async (e) => {
@@ -10,8 +11,7 @@ class Splash extends Component {
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
     const response = await fetch(url)
     const results = await response.json()
-    console.log(results.results)
-    console.log(this.state)
+    this.props.history.push('/home')
     this.props.addMovies(results.results)
   }
 
@@ -24,12 +24,12 @@ class Splash extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  movies: state.movies
-})
+// const mapStateToProps = (state) => ({
+//   movies: state.movies
+// })
 
 const mapDispatchToProps = (dispatch) => ({
   addMovies: (movies) => dispatch(addMovies(movies))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Splash)
+export default connect(null, mapDispatchToProps)(Splash)
