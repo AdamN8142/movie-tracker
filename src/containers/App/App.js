@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
-import Splash from '../Splash/Splash'
+import Login from '../Login/Login'
 import Home from '../../components/Home/Home';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom';
+import { apiKey } from '../../utilities/apiKey.js';
+import { addMovies } from '../../actions';
+import { connect } from 'react-redux';
 
-export default class App extends Component {
+class App extends Component {
 
   render() {
     return (
       <div className="App">
         <Switch>
-          <Route default path='/signin' component={Splash} />
-          <Route path='/home' component={Home} />
+          <Route default path='/' component={Home} />
+          hi
+          <Route path='/signin' component={Login} />
         </Switch>
       </div>
     )
   }
 }
+
+
+const mapDispatchToProps = (dispatch) => ({
+  addMovies: (movies) => dispatch(addMovies(movies))
+})
+
+//set the default page to home
+//
+
+export default connect(null, mapDispatchToProps)(App)
