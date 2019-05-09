@@ -16,7 +16,7 @@ export const postNewUser = (name, email, password) => {
 }
 
 export const signInUser = (email, password) => {
-  fetch('http://localhost:3000/api/users/', {
+  return fetch('http://localhost:3000/api/users/', {
     method: 'POST',
     body: JSON.stringify({
       email,
@@ -27,7 +27,6 @@ export const signInUser = (email, password) => {
     }
   })
   .then(response => response.json())
-  .then(results => console.log(results))
   .catch(error => console.log(error))
 }
 
