@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import Login from '../Login/Login'
 import Home from '../../components/Home/Home';
 import { Switch, Route } from 'react-router-dom';
-import { addMovies } from '../../actions';
-import { connect } from 'react-redux';
-import Header from '../Header/Header'
 
-class App extends Component {
+export default class App extends Component {
 
   render() {
     return (
       <div className="App">
         <Switch>
-          {/* <Route path ='/' component={Header} /> */}
           <Route exact default path='/' component={Home} />
           <Route path='/signin' component={Login} />
         </Switch>
@@ -20,13 +16,3 @@ class App extends Component {
     )
   }
 }
-
-
-const mapDispatchToProps = (dispatch) => ({
-  addMovies: (movies) => dispatch(addMovies(movies))
-})
-
-//set the default page to home
-//
-
-export default connect(null, mapDispatchToProps)(App)

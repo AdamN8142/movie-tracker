@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { postNewUser, signInUser } from '../../utilities/api'
+import { connect } from 'react-redux'
+import { saveLogin } from '../../actions/index'
+import CardContainer from '../CardContainer/CardContainer';
 
 class Login extends Component {
   constructor(){
@@ -28,10 +31,10 @@ class Login extends Component {
     const response = await signInUser(this.state.email, this.state.password)
     console.log(response)
     if(response === undefined) {
-      alert('pw incorrect')
+      alert('Sorry, your username and/or password is incorrect')
     } 
     else if(response.status === 'success') {
-      console.log('yay')
+      this.props.saveLogin(response)
       this.props.history.push('/')
     }
   }
@@ -55,7 +58,13 @@ class Login extends Component {
   }
 }
 
+// const mapStateToProps = (state) => {
+//   user: 
+// }
+
+const mapDispatchToProps = (dispatch) => ({
+  saveLogin: (user) => dispatch(saveLogin(user))
+})
 
 
-
-export default Login;
+export default connect(null, mapDispatchToProps)(Login)
