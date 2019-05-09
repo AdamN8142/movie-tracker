@@ -5,7 +5,6 @@ import { apiKey } from '../../utilities/apiKey.js';
 import Card from '../Card/Card'
 import './CardContainer.css'
 
-
   class CardContainer extends Component {
 
   componentDidMount() {
