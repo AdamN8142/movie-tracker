@@ -28,7 +28,6 @@ class Login extends Component {
     const response = await signInUser(this.state.email, this.state.password)
     console.log(response)
     if(response === undefined) {
-      console.log('hi')
       alert('pw incorrect')
     } 
     else if(response.status === 'success') {
