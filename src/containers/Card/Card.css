@@ -1,0 +1,13 @@
+.movie-img { 
+  height: 375px;
+  width: 250px;
+  opacity: .80;
+  margin: 30px 5px 0px 5px;
+  border: 1px solid burlywood;
+  border-radius: 5px;
+}
+
+.movie-img:hover {
+  opacity: 1;
+}
+

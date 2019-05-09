@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+@import url('https://fonts.googleapis.com/css?family=Flavors');
+
+
+/* neutral background  */
+
+.app-title {
+  text-align: center;
+  font-size: 110px;
+  font-family: 'Monoton', cursive;
+  color:burlywood;
+  margin: 0;
+  background-color: rgb(48, 42, 42);
+}
+
+
+
+
+/* colorful background  */
+
+.app-title {
+  text-align: center;
+  font-size: 110px;
+  font-family: 'Monoton', cursive;
+  color:burlywood;
+  margin: 0;
+  background: -webkit-linear-gradient(right, rgb(136, 216, 205),burlywood, rgb(180, 94, 180));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title {
+ background-color: rgb(48, 42, 42);
+}
+
+.nav-bar {
+  text-align: center;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-around;
+  background-image: linear-gradient(rgb(136, 216, 205),burlywood,rgb(180, 94, 180));
+  height: 65px;
+  padding: 7px;
+}
+
+.nav{
+  color: rgb(48, 42, 42);
+  text-decoration: none;
+  padding:10px;
+  font-family: 'Flavors', cursive;
+  font-size: 45px;
+}
+
+.nav:hover {
+  color:brown;
+}
