@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { postNewUser, signInUser } from '../../utilities/api'
 import { connect } from 'react-redux'
-import { saveLogin } from '../../actions/index'
-import CardContainer from '../CardContainer/CardContainer';
+import { saveLogin, signOut } from '../../actions/index'
 
 class Login extends Component {
   constructor(){
@@ -39,6 +38,12 @@ class Login extends Component {
     }
   }
 
+  signOutHandler = (e) => {
+    e.preventDefault()
+    // const emptyObj = {}
+    this.props.signOut()
+  }
+
   render() {
     return (
       <div>
@@ -53,6 +58,8 @@ class Login extends Component {
         <input onChange={this.handleChange} name="password"></input>
         <button>SUBMIT</button>
       </form>
+
+      <button onClick={this.signOutHandler}>SIGN OUT</button>
       </div>
     )
   }
@@ -63,7 +70,8 @@ class Login extends Component {
 // }
 
 const mapDispatchToProps = (dispatch) => ({
-  saveLogin: (user) => dispatch(saveLogin(user))
+  saveLogin: (user) => dispatch(saveLogin(user)),
+  signOut: (user) => dispatch(signOut(user))
 })
 
 
