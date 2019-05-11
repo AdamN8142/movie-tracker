@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { postNewUser, signInUser } from '../../utilities/api'
 import { connect } from 'react-redux'
 import { saveLogin, signOut } from '../../actions/index'
+import './Login.css'
 
 class Login extends Component {
   constructor(){
@@ -46,19 +47,29 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className= "login-page">
+      <div className="login-card">
+      <h1 className="login-header">[ MOVIEtracker ]</h1>
       <form onSubmit={this.handleNewUser}>
-        <input onChange={this.handleChange} name="name"></input>
-        <input onChange={this.handleChange} name="email"></input>
-        <input onChange={this.handleChange} name="password"></input>
-        <button>SUBMIT</button>
+      <div className ="create-login login-container">
+        <p className="login-text">NAME :</p>
+        <input className="input-field" onChange={this.handleChange} placeholder="Name" name="name"></input>
+        <p className="login-text">EMAIL :</p>
+        <input className="input-field" onChange={this.handleChange} placeholder="Email" name="email"></input>
+        <p className="login-text">PASSWORD :</p>
+        <input className="input-field" onChange={this.handleChange} placeholder="Password" name="password"></input>
+        <button className="login-button">CREATE ACCOUNT</button>
+      </div>
       </form>
+      <p className="sign-in-text">Already have an account? Sign in below!</p>
       <form onSubmit={this.handleSignIn}>
-        <input onChange={this.handleChange} name="email"></input>
-        <input onChange={this.handleChange} name="password"></input>
-        <button>SUBMIT</button>
+      <div className="login-container">
+        <input className="input-field" onChange={this.handleChange} placeholder="Email" name="email"></input>
+        <input className="input-field" onChange={this.handleChange} placeholder="Password" name="password"></input>
+        <button className="login-button">SIGN IN</button>
+      </div>
       </form>
-
+      </div>
       <button onClick={this.signOutHandler}>SIGN OUT</button>
       </div>
     )

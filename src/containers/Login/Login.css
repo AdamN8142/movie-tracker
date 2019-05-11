@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab|Lobster|Montserrat|Playfair+Display');
+
+.login-page {
+  background: -webkit-linear-gradient( burlywood, rgb(236, 147, 147));
+  height: 795px;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  margin: auto;
+}
+
+.create-login {
+  margin-bottom: 50px;
+}
+
+.login-card {
+  background-color: rgba(83, 67, 67, 0.842);
+  width: 680px;
+  margin: auto;
+  height: 750px;
+  border-radius: 25px;
+  box-shadow: 3px 6px  rgb(136, 216, 205);
+}
+
+.login-header {
+  text-align: center;
+  font-size: 46px;
+  font-family: 'Monoton', cursive;
+  margin: 0;
+  background: -webkit-linear-gradient(right, rgb(136, 216, 205),burlywood, rgb(180, 94, 180));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-top: 48px;
+  padding-bottom: 25px;
+}
+
+.input-field {
+  height: 33px;
+  margin-bottom: 5px;
+  font-size: 17px;
+  background-color: rgb(226, 207, 182);
+  border-style: none;
+  padding: 5px;
+  opacity: .7;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.login-button {
+  height: 50px;
+  width: 120px;
+  margin: auto;
+  font-size: 14px;
+  background-color: wheat;
+  margin-top: 9px;
+  border: solid 2px transparent;
+  font-family: 'Montserrat', sans-serif;
+  border-radius:10px;
+
+}
+
+.login-button:hover {
+  border: solid 2px white;
+  background-color: rgba(215, 143, 236, 0.596);
+  font-weight: bold;
+}
+
+.sign-in-text {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.login-text {
+  margin:0;
+  padding-bottom: 8px;
+  padding-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
