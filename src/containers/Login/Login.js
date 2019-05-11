@@ -52,12 +52,16 @@ class Login extends Component {
       <h1 className="login-header">[ MOVIEtracker ]</h1>
       <form onSubmit={this.handleNewUser}>
       <div className ="create-login login-container">
+        <p className="login-text">NAME :</p>
         <input className="input-field" onChange={this.handleChange} placeholder="Name" name="name"></input>
+        <p className="login-text">EMAIL :</p>
         <input className="input-field" onChange={this.handleChange} placeholder="Email" name="email"></input>
+        <p className="login-text">PASSWORD :</p>
         <input className="input-field" onChange={this.handleChange} placeholder="Password" name="password"></input>
         <button className="login-button">CREATE ACCOUNT</button>
       </div>
       </form>
+      <p className="sign-in-text">Already have an account? Sign in below!</p>
       <form onSubmit={this.handleSignIn}>
       <div className="login-container">
         <input className="input-field" onChange={this.handleChange} placeholder="Email" name="email"></input>

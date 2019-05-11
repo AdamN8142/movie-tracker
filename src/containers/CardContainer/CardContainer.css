@@ -2,7 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-image: linear-gradient(wheat, white,blanchedalmond);
+  /* background-image: linear-gradient(wheat, white,blanchedalmond); */
+  background: -webkit-linear-gradient( burlywood, rgb(236, 147, 147));
   /* background-image: linear-gradient(black, grey); */
   /* background-color: rgba(0, 0, 0, 0.883); */
   padding-bottom: 70px;
