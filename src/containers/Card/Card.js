@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { apiKey } from '../../utilities/apiKey'
 import './Card.css'
 import { connect } from 'react-redux'
-import { addFavorite, removeFavorite } from '../../actions'
+import { toggleFavorite } from '../../actions'
 
 
 
@@ -14,17 +14,19 @@ class Card extends Component {
     this.props.addFavorite(e.target.name)
   }
   
-  handleRemoveFavorite = (e) => {
+  handleToggleFavorite = (e) => {
     console.log('hi')
     console.log(e.target.name)
-    this.props.removeFavorite(e.target.name)
+    this.props.toggleFavorite(e.target.name)
   }
+
+
 
   render(){
     return (
       <div>
-        <img onClick={this.handleAddFavorite} name={this.props.movie.id} className="movie-img" alt={`${this.props.movie.title}movie poster`} src={`https://image.tmdb.org/t/p/w500${this.props.movie.poster_path}`}/>
-        {/* <button onClick={this.handleRemoveFavorite} name={this.props.movie.id}>pressme</button> */}
+        <img name={this.props.movie.id} className="movie-img" alt={`${this.props.movie.title}movie poster`} src={`https://image.tmdb.org/t/p/w500${this.props.movie.poster_path}`}/>
+        <button onClick={this.handleToggleFavorite} name={this.props.movie.id}>pressme</button>
       </div>
     )
   }
@@ -35,8 +37,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  addFavorite: (favorite) => dispatch(addFavorite(favorite)),
-  removeFavorite: (favorite) => dispatch(removeFavorite(favorite))
+    toggleFavorite: (favorite) => dispatch(toggleFavorite(favorite))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card)

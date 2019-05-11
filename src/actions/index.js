@@ -13,12 +13,7 @@ export const signOut = (user) => ({
   user
 })
 
-export const addFavorite = (favorite) => ({
-  type: 'ADD_FAVORITE',
-  favorite
-})
-
-export const removeFavorite = (favorite) => ({
-  type: 'REMOVE_FAVORITE',
+export const toggleFavorite = (favorite) => ({
+  type: 'TOGGLE_FAVORITE',
   favorite
 })
