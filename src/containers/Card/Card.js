@@ -3,24 +3,34 @@ import { apiKey } from '../../utilities/apiKey'
 import './Card.css'
 import { connect } from 'react-redux'
 import { toggleFavorite } from '../../actions'
+import { addFavorites, deleteFavorites } from '../../utilities/api'
 
 
 
 
 class Card extends Component {
 
-  handleAddFavorite = (e) => {
-    console.log(e.target.name)
-    this.props.addFavorite(e.target.name)
-  }
-  
+
+
   handleToggleFavorite = (e) => {
-    console.log('hi')
-    console.log(e.target.name)
-    this.props.toggleFavorite(e.target.name)
+    if(!this.props.user.name) {
+      alert('please sign in')
+    } else if (this.props.user.name && this.props.movie.favorite === true) {
+      deleteFavorites(this.props.movie.id, this.props.user.id)
+      this.props.toggleFavorite(e.target.name)
+    } else {
+      this.props.toggleFavorite(e.target.name)
+      addFavorites(
+        this.props.movie.id, 
+        this.props.user.id, 
+        this.props.movie.title,
+        this.props.movie.poster_path,
+        this.props.movie.release_date,
+        this.props.movie.vote_average,
+        this.props.movie.overview
+      )
+    }
   }
-
-
 
   render(){
     return (
@@ -33,7 +43,7 @@ class Card extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  favorites: state.favorites
+  user: state.user
 })
 
 const mapDispatchToProps = (dispatch) => ({
