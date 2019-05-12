@@ -3,8 +3,42 @@
   flex-wrap: wrap;
   justify-content: center;
   /* background-image: linear-gradient(wheat, white,blanchedalmond); */
-  background: -webkit-linear-gradient( burlywood, rgb(236, 147, 147));
+  /* background: -webkit-linear-gradient( burlywood, aqua, rgb(236, 147, 147)); */
   /* background-image: linear-gradient(black, grey); */
   /* background-color: rgba(0, 0, 0, 0.883); */
+  background-image: url("https://allhdwallpapers.com/wp-content/uploads/2016/07/Wood-9.jpg");
+  /* background-color: rgba(61, 28, 28, 0.517); */
   padding-bottom: 70px;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nav-bar {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  background-image: linear-gradient(rgb(136, 216, 205),burlywood,rgb(180, 94, 180));
+  height: 45px;
+  padding: 7px;
+}
+
+.nav{
+  color: rgb(48, 42, 42);
+  text-decoration: none;
+  padding: 4px;
+  /* font-family: 'Monoton', cursive; */
+  /* font-family: 'Righteous', cursive; */
+  /* font-family: 'Lobster', cursive; */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  opacity: .8;
+
+}
+
+.nav:hover {
+  color:rgb(245, 235, 217);
+  text-decoration: underline;
+  opacity: 1;
 }

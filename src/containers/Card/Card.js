@@ -16,7 +16,7 @@ class Card extends Component {
     if(!this.props.user.name) {
       alert('please sign in')
     } else if (this.props.user.name && this.props.movie.favorite === true) {
-      deleteFavorites(this.props.movie.id, this.props.user.id)
+      deleteFavorites(this.props.movie.movie_id, this.props.user.id)
       this.props.toggleFavorite(e.target.name)
     } else {
       this.props.toggleFavorite(e.target.name)

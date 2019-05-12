@@ -9,7 +9,7 @@ export const moviesReducer = (state = [], action) => {
       return state.map((movie)=> {
         if(movie.id == action.favorite) {
           console.log(movie.id)
-          return {...movie, favorite:!movie.favorite }
+          return {...movie, movie_id:movie.id, favorite:!movie.favorite }
         } else {
           return movie
         }
