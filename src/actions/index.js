@@ -17,3 +17,14 @@ export const toggleFavorite = (favorite) => ({
   type: 'TOGGLE_FAVORITE',
   favorite
 })
+
+export const setCategory = (category) => ({
+  type: 'SET_CATEGORY',
+  category 
+})
+
+export const grabFavorites = (favorites) => ({
+  type: 'GRAB_FAVORITES',
+  favorites
+
+})
