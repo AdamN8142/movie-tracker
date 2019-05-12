@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addMovies, grabFavorites } from '../../actions';
+import { NavLink } from 'react-router-dom'
 import { apiKey } from '../../utilities/apiKey.js';
 import Card from '../Card/Card'
 import './CardContainer.css'
@@ -24,16 +25,21 @@ import './CardContainer.css'
     }
   }
 
-  toggleAllFavorites = async () => {
+  showAllFavorites = () => {
     if(this.props.user.id) {
-      let currentFavorites = this.state.favorites
       this.setState({
-        favorites:!currentFavorites
+        favorites: true
       })
       this.fetchFavorites(this.props.user.id)
     } else {
       alert("Please sign in!")
     }
+  }
+
+  showAllMovies = () => {
+    this.setState({
+      favorites: false
+    })
   }
   
   fetchMovies = async () => { 
@@ -66,9 +72,16 @@ import './CardContainer.css'
 
   render(){ 
     return (
-      <div className = 'card-container'>
-          {this.displayCards()}
-          <button onClick={this.toggleAllFavorites}>FAVORITES</button>
+      <div>
+        <nav className= 'nav-bar'>
+            <NavLink value="movies" onClick={this.showAllMovies} to='/' className='nav'>Movies</NavLink>
+            {/* <NavLink to='/tv' className='nav'>Television</NavLink> */}
+            <NavLink value='favorites' onClick={this.showAllFavorites} to='/favorites' className='nav'>Favorites</NavLink>
+            <NavLink to='/signin' className='nav'>Sign In</NavLink>
+          </nav>
+        <div className = 'card-container'>
+            {this.displayCards()}
+        </div>
       </div>
     )
   }

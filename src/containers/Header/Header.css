@@ -36,31 +36,3 @@
  background-color: rgb(48, 42, 42);
 }
 
-.nav-bar {
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
-  background-image: linear-gradient(rgb(136, 216, 205),burlywood,rgb(180, 94, 180));
-  height: 45px;
-  padding: 7px;
-}
-
-.nav{
-  color: rgb(48, 42, 42);
-  text-decoration: none;
-  padding: 4px;
-  /* font-family: 'Monoton', cursive; */
-  /* font-family: 'Righteous', cursive; */
-  /* font-family: 'Lobster', cursive; */
-  font-family: 'Montserrat', sans-serif;
-  font-size: 35px;
-  font-weight: bold;
-  opacity: .8;
-
-}
-
-.nav:hover {
-  color:rgb(245, 235, 217);
-  text-decoration: underline;
-  opacity: 1;
-}
