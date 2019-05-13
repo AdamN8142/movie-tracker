@@ -59,7 +59,7 @@ import './CardContainer.css'
   displayCards = () => {
     var moviesToShow
     if(this.state.favorites) {
-      moviesToShow = this.props.favorites
+      moviesToShow = this.props.movies.filter(movie => movie.favorite);
     } else {
       moviesToShow = this.props.movies
     }
