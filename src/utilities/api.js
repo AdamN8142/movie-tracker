@@ -53,8 +53,6 @@ export const addFavorites = (movie_id, user_id, title, poster_path, release_date
 }
 
 export const deleteFavorites = (movie_id, user_id) => {
-  
-  console.log('removed')
   const url = `http://localhost:3000/api/users/${user_id}/favorites/${movie_id}`
   fetch(url, {
     method: 'DELETE',
