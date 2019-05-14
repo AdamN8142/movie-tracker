@@ -44,12 +44,15 @@ describe('CardContainer', () => {
     "release_date": "2019-04-24"
   }]
 
+  let moviesToShow
+
   beforeEach(() => {
     wrapper = shallow(<CardContainer  />)
   })
+  
+  it.skip('should match snapshot', () => {
+    moviesToShow = mockMovies
 
-  it('should match snapshot', () => {
-    wrapper = shallow(<CardContainer />)
     expect(wrapper).toMatchSnapshot()
   })
 })

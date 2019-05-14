@@ -108,6 +108,7 @@ import './CardContainer.css'
           </nav>
         <div className = 'card-container'>
           {
+            //need to replace moviesToShow.length with loading screen
             moviesToShow.length && 
             moviesToShow.map((movie, i) => {
               return (
