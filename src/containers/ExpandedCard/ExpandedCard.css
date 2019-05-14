@@ -7,13 +7,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  /* height: 100%; */
 }
 
 .expanded-photo { 
-  width: 830px;
-  height: 400px;
-  padding-top: 50px;
+  width: 700px;
+  height: 350px;
+  border: 10px solid black;
 }
 
 .expanded-title {
