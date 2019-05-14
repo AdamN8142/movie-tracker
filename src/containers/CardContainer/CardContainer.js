@@ -69,7 +69,6 @@ import './CardContainer.css'
     var moviesToShow
     if(this.state.favorites) {
       moviesToShow = movies.filter(movie => movie.favorite);
-      console.log(moviesToShow)
     } else {
       moviesToShow = movies
     }
@@ -90,7 +89,6 @@ import './CardContainer.css'
           </nav>
         <div className = 'card-container'>
           {
-            //need to replace moviesToShow.length with loading screen
             moviesToShow.length > 0 && 
             moviesToShow.map((movie, i) => {
               return (
@@ -99,7 +97,6 @@ import './CardContainer.css'
             })
           }
                     {
-            //need to replace moviesToShow.length with loading screen
             moviesToShow.length === 0 && 
            (<div>
              <p className="no-favorites">You currently have no favorites</p>
