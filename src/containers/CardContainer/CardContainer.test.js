@@ -47,12 +47,10 @@ describe('CardContainer', () => {
   let moviesToShow
 
   beforeEach(() => {
-    wrapper = shallow(<CardContainer  />)
+    wrapper = shallow(<CardContainer  movies={mockMovies}/>)
   })
   
-  it.skip('should match snapshot', () => {
-    moviesToShow = mockMovies
-
+  it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
 })

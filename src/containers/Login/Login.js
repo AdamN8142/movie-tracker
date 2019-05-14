@@ -30,7 +30,6 @@ export class Login extends Component {
   handleSignIn = async (e) => {
     e.preventDefault()
     const response = await signInUser(this.state.email, this.state.password)
-    console.log(response)
     if(response === undefined) {
       alert('Sorry, your username and/or password is incorrect')
     } 
@@ -54,33 +53,46 @@ export class Login extends Component {
   }
 
   render() {
-    return (
-      <div className= "login-page">
-      <div className="login-card">
-      <h1 className="login-header">[ MOVIEtracker ]</h1>
-      <form onSubmit={this.handleNewUser}>
-      <div className ="create-login login-container">
-        <p className="login-text">NAME :</p>
-        <input className="input-field" onChange={this.handleChange} placeholder="Name" name="name"></input>
-        <p className="login-text">EMAIL :</p>
-        <input className="input-field" onChange={this.handleChange} placeholder="Email" name="email"></input>
-        <p className="login-text">PASSWORD :</p>
-        <input className="input-field" onChange={this.handleChange} placeholder="Password" name="password"></input>
-        <button className="login-button">CREATE ACCOUNT</button>
-      </div>
-      </form>
-      <p className="sign-in-text">Already have an account? Sign in below!</p>
-      <form onSubmit={this.handleSignIn}>
-      <div className="login-container">
-        <input className="input-field" onChange={this.handleChange} placeholder="Email" name="email"></input>
-        <input className="input-field" onChange={this.handleChange} placeholder="Password" name="password"></input>
-        <button className="login-button">SIGN IN</button>
-      </div>
-      </form>
-      </div>
-      <button onClick={this.signOutHandler}>SIGN OUT</button>
-      </div>
-    )
+    if(this.props.user.id) {
+      return (
+        <div className="login-page">
+          <div className='login-card'>
+            <p className="sign-in-text">Are you sure you want to sign out?</p>
+            <div className="login-container">
+              <button className="login-button" onClick={this.signOutHandler}>SIGN OUT</button>
+            </div>
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <div className= "login-page">
+        <div className="login-card">
+        <h1 className="login-header">[ MOVIEtracker ]</h1>
+        <form onSubmit={this.handleNewUser}>
+        <div className ="create-login login-container">
+          <p className="login-text">NAME :</p>
+          <input className="input-field" onChange={this.handleChange} placeholder="Name" name="name"></input>
+          <p className="login-text">EMAIL :</p>
+          <input className="input-field" onChange={this.handleChange} placeholder="Email" name="email"></input>
+          <p className="login-text">PASSWORD :</p>
+          <input className="input-field" onChange={this.handleChange} placeholder="Password" name="password"></input>
+          <button className="login-button">CREATE ACCOUNT</button>
+        </div>
+        </form>
+        <p className="sign-in-text">Already have an account? Sign in below!</p>
+        <form onSubmit={this.handleSignIn}>
+        <div className="login-container">
+          <input className="input-field" onChange={this.handleChange} placeholder="Email" name="email"></input>
+          <input className="input-field" onChange={this.handleChange} placeholder="Password" name="password"></input>
+          <button className="login-button">SIGN IN</button>
+        </div>
+        </form>
+        </div>
+        <button onClick={this.signOutHandler}>SIGN OUT</button>
+        </div>
+      )
+    }
   }
 }
 

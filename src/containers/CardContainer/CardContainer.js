@@ -78,13 +78,14 @@ import './CardContainer.css'
   render(){ 
 
     let moviesToShow = this.displayCards();
+    let userLogin = this.props.user.id ? 'Sign Out' : 'Sign In'
 
     return (
       <div>
         <nav className= 'nav-bar'>
             <NavLink value="movies" onClick={this.showAllMovies} to='/' className='nav'>Movies</NavLink>
             <NavLink value='favorites' onClick={this.showAllFavorites} to='/favorites' className='nav'>Favorites</NavLink>
-            <NavLink to='/signin' className='nav'>Sign In</NavLink>
+            <NavLink to='/signin' className='nav'>{userLogin}</NavLink>
           </nav>
         <div className = 'card-container'>
           {
