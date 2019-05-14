@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab|Lobster|Montserrat|Playfair+Display');
+.expanded-card {
+  background-image: url('https://i.pinimg.com/originals/0e/86/98/0e86989645e59fd230f5f9f7bcf7eaff.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.expanded-photo { 
+  width: 830px;
+  height: 400px;
+  padding-top: 50px;
+}
+
+.expanded-title {
+  font-size: 50px;
+  font-family: 'Montserrat', sans-serif;
+  color: wheat;
+}
+
+.expanded-descrip {
+  border:  2px solid black;
+  /* margin-left: 90px;
+  margin-right: 90px; */
+  width: 500px;
+  padding: 15px;
+  font-size: 20px;
+  background-color: white;
+  opacity: .5;
+}
+
+.expanded-release {
+  font-size: 30px;
+  margin-top: 0;
+  color: rgba(238, 53, 53, 0.815);
+  
+}
