@@ -43,3 +43,10 @@
   text-decoration: underline;
   opacity: 1;
 }
+
+.no-favorites {
+  font-size: 55px;
+  font-weight: bold;
+  color:red;
+  padding-bottom: 400px;
+}

@@ -39,3 +39,14 @@
   color: rgba(238, 53, 53, 0.815);
   
 }
+
+.go-back-button { 
+  font-size: 2.5em;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.button-container {
+  display: flex;
+  width: 100vw;
+}

@@ -21,9 +21,10 @@ export class Login extends Component {
     })
   }
 
-  handleNewUser = (e) => {
+  handleNewUser = async (e) => {
     e.preventDefault()
-    postNewUser(this.state.name, this.state.email, this.state.password)
+    await postNewUser(this.state.name, this.state.email, this.state.password)
+    this.handleSignIn(e)
     this.props.history.push('/')
   }
 
@@ -34,8 +35,8 @@ export class Login extends Component {
       alert('Sorry, your username and/or password is incorrect')
     } 
     else if(response.status === 'success') {
-      this.props.saveLogin(response)
-      this.fetchFavorites(this.props.user.id)
+      await this.props.saveLogin(response)
+      this.fetchFavorites(response.data.id)
       this.props.history.push('/')
     }
   }
@@ -74,17 +75,17 @@ export class Login extends Component {
           <p className="login-text">NAME :</p>
           <input className="input-field" onChange={this.handleChange} placeholder="Name" name="name"></input>
           <p className="login-text">EMAIL :</p>
-          <input className="input-field" onChange={this.handleChange} placeholder="Email" name="email"></input>
+          <input className="input-field" onChange={this.handleChange} type="email" placeholder="Email" name="email"></input>
           <p className="login-text">PASSWORD :</p>
-          <input className="input-field" onChange={this.handleChange} placeholder="Password" name="password"></input>
+          <input className="input-field" onChange={this.handleChange} type="password" placeholder="Password" name="password"></input>
           <button className="login-button">CREATE ACCOUNT</button>
         </div>
         </form>
         <p className="sign-in-text">Already have an account? Sign in below!</p>
         <form onSubmit={this.handleSignIn}>
         <div className="login-container">
-          <input className="input-field" onChange={this.handleChange} placeholder="Email" name="email"></input>
-          <input className="input-field" onChange={this.handleChange} placeholder="Password" name="password"></input>
+          <input className="input-field" onChange={this.handleChange} type="email" placeholder="Email" name="email"></input>
+          <input className="input-field" onChange={this.handleChange} type="password" placeholder="Password" name="password"></input>
           <button className="login-button">SIGN IN</button>
         </div>
         </form>
