@@ -5,7 +5,7 @@ import ExpandedCard from '../ExpandedCard/ExpandedCard';
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom';
 
-class App extends Component {
+export class App extends Component {
 
   render() {
     return (
