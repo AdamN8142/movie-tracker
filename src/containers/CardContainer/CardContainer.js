@@ -10,8 +10,7 @@ import './CardContainer.css'
     constructor() {
       super();
       this.state = {
-        favorites:false,
-        favArr: []
+        favorites:false
       }
     }
     
@@ -20,47 +19,28 @@ import './CardContainer.css'
       this.matchFavorites()
   }
 
-  // componentDidUpdate() {
-  //   if(!this.props.favorites && this.props.user.id){
-  //     this.fetchFavorites(this.props.user.id)
-  //   }
-  // }
-
   matchFavorites = () => {
-    // console.log(this.props.movies)
     let favArr = [];
     this.props.movies.forEach((movie) => {
-      // console.log('movie', movie)
-
-
       this.props.favorites.forEach((fav) => {
-        // console.log('mov', movie)
-
-        // console.log('id', movie.id)
-        // console.log('f', fav.movie_id)
         if(movie.id === fav.movie_id) {
-          // console.log(movie)
           favArr.push(movie) 
         }
       })
-      // console.log('matchingFav', matchingFav)
-      
-
-
     })
-    this.props.toggleFavorite(favArr)
-    
+    this.props.toggleFavorite(favArr)  
   }
 
   showAllFavorites = (e) => {
+    const {user, router} = this.props
     e.preventDefault()
-    if(this.props.user.id) {
+    if(user.id) {
       this.setState({
         favorites: true
       })
-      this.fetchFavorites(this.props.user.id)
+      this.fetchFavorites(user.id)
     } else {
-      this.props.router.history.push('/signin')
+      router.history.push('/signin')
     }
   }
 
@@ -85,11 +65,12 @@ import './CardContainer.css'
   }
   
   displayCards = () => {
+    const {movies} = this.props
     var moviesToShow
     if(this.state.favorites) {
-      moviesToShow = this.props.movies.filter(movie => movie.favorite);
+      moviesToShow = movies.filter(movie => movie.favorite);
     } else {
-      moviesToShow = this.props.movies
+      moviesToShow = movies
     }
     return moviesToShow;
   }
@@ -102,7 +83,6 @@ import './CardContainer.css'
       <div>
         <nav className= 'nav-bar'>
             <NavLink value="movies" onClick={this.showAllMovies} to='/' className='nav'>Movies</NavLink>
-            {/* <NavLink to='/tv' className='nav'>Television</NavLink> */}
             <NavLink value='favorites' onClick={this.showAllFavorites} to='/favorites' className='nav'>Favorites</NavLink>
             <NavLink to='/signin' className='nav'>Sign In</NavLink>
           </nav>
