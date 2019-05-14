@@ -44,13 +44,21 @@ describe('CardContainer', () => {
     "release_date": "2019-04-24"
   }]
 
+  let mockUser = {id: 1, name:'dude'}
+
   let moviesToShow
 
   beforeEach(() => {
-    wrapper = shallow(<CardContainer  movies={mockMovies}/>)
+    wrapper = shallow(<CardContainer user={mockUser} movies={mockMovies}/>)
   })
   
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
+
+  it('should match default state', () => {
+    expect(wrapper.state()).toEqual({favorites: false})
+  })
+
+  
 })
