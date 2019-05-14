@@ -30,7 +30,6 @@ export class Login extends Component {
   handleSignIn = async (e) => {
     e.preventDefault()
     const response = await signInUser(this.state.email, this.state.password)
-    console.log(response)
     if(response === undefined) {
       alert('Sorry, your username and/or password is incorrect')
     } 
