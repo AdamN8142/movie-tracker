@@ -16,7 +16,6 @@ export const moviesReducer = (state = [], action) => {
     case 'CHANGE_FAVORITE':
         let favMovie = state.find(movie => action.id === movie.id)
         favMovie.favorite = !favMovie.favorite
-        // console.log(favMovie)
         return [...state]
     default:
       return state  

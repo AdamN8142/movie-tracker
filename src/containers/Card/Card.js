@@ -1,17 +1,11 @@
 import React, { Component } from 'react'
-import { apiKey } from '../../utilities/apiKey'
 import './Card.css'
 import { connect } from 'react-redux'
 import { toggleFavorite, changeFavorite } from '../../actions'
 import { addFavorites, deleteFavorites } from '../../utilities/api'
 
-class Card extends Component {
-  constructor(){
-    super()
-    this.state = {
-      update: false
-    }
-  }
+export class Card extends Component {
+
   fetchFavorites = (id) => {
     const url = `http://localhost:3000/api/users/${id}/favorites`
     fetch(url)
@@ -19,31 +13,32 @@ class Card extends Component {
       .then(results => this.props.grabFavorites(results.data))
   } 
   handleToggleFavorite = (e) => {
-    if(!this.props.user.name) {
-      this.props.router.history.push('/signin')
-    } else if (this.props.user.name && this.props.favorite === true) {
-      deleteFavorites(this.props.id, this.props.user.id)
-      this.props.changeFavorite(this.props.id)
+    const {user, router, favorite, id, title, poster_path, release_date, vote_average, overview} = this.props
+    if(!user.name) {
+      router.history.push('/signin')
+    } else if (user.name && favorite === true) {
+      deleteFavorites(id, user.id)
+      this.props.changeFavorite(id)
     } else {
       addFavorites(
-        this.props.id, 
-        this.props.user.id, 
-        this.props.title,
-        this.props.poster_path,
-        this.props.release_date,
-        this.props.vote_average,
-        this.props.overview
+        id, 
+        user.id, 
+        title,
+        poster_path,
+        release_date,
+        vote_average,
+        overview
         )
-      this.props.changeFavorite(this.props.id)
+      this.props.changeFavorite(id)
     }
   }
 
   render(){
-    // const { id, favorite, title, poster_path} = this.props.movie;
-    const favImg = this.props.favorite ? 'fas fa-heart' : 'far fa-heart'
+    const { id, favorite, title, poster_path} = this.props;
+    const favImg = favorite ? 'fas fa-heart' : 'far fa-heart'
     return (
       <div>
-        <img className="movie-img" alt={`${this.props.title} movie poster`} onClick={() => {this.props.router.history.push(`/movie/${this.props.id}`)}} src={`https://image.tmdb.org/t/p/w500${this.props.poster_path}`}/>
+        <img className="movie-img" alt={`${title} movie poster`} onClick={() => {this.props.router.history.push(`/movie/${id}`)}} src={`https://image.tmdb.org/t/p/w500${poster_path}`}/>
         <i className={favImg} onClick={this.handleToggleFavorite}></i>
       </div>
     )
