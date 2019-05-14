@@ -1,15 +1,7 @@
 import React, { Component } from 'react'
 import './Header.css'
-import { setCategory } from '../../actions'
-import { connect } from 'react-redux'
 
-class Header extends Component {
-
-
-  handleSetCategory = (e) => {
-    this.props.setCategory(e.target)
-  }
-
+export default class Header extends Component {
 
   render() {
     return (
@@ -21,11 +13,3 @@ class Header extends Component {
     )
   }
 }
-
-
-const mapDispatchToProps = (dispatch) => ({
-  setCategory: (category)=> dispatch(setCategory(category))
-})
-
-
-export default connect(null, mapDispatchToProps)(Header)
