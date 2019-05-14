@@ -5,7 +5,7 @@ import { saveLogin, signOut, grabFavorites } from '../../actions/index'
 import './Login.css'
 // import { apiKey } from '../../utilities/apiKey'
 
-class Login extends Component {
+export class Login extends Component {
   constructor(){
     super()
     this.state = {
