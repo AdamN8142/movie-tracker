@@ -21,9 +21,9 @@ export class Login extends Component {
     })
   }
 
-  handleNewUser = (e) => {
+  handleNewUser = async (e) => {
     e.preventDefault()
-    postNewUser(this.state.name, this.state.email, this.state.password)
+    await postNewUser(this.state.name, this.state.email, this.state.password)
     this.handleSignIn(e)
     this.props.history.push('/')
   }
@@ -31,12 +31,13 @@ export class Login extends Component {
   handleSignIn = async (e) => {
     e.preventDefault()
     const response = await signInUser(this.state.email, this.state.password)
+    console.log(response)
     if(response === undefined) {
       alert('Sorry, your username and/or password is incorrect')
     } 
     else if(response.status === 'success') {
-      this.props.saveLogin(response)
-      this.fetchFavorites(this.props.user.id)
+      await this.props.saveLogin(response)
+      this.fetchFavorites(response.data.id)
       this.props.history.push('/')
     }
   }
