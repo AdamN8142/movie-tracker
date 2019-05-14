@@ -52,14 +52,15 @@ import './CardContainer.css'
     
   }
 
-  showAllFavorites = () => {
+  showAllFavorites = (e) => {
+    e.preventDefault()
     if(this.props.user.id) {
       this.setState({
         favorites: true
       })
       this.fetchFavorites(this.props.user.id)
     } else {
-      alert("Please sign in!")
+      this.props.router.history.push('/signin')
     }
   }
 
@@ -110,7 +111,7 @@ import './CardContainer.css'
             moviesToShow.length && 
             moviesToShow.map((movie, i) => {
               return (
-                <Card {...movie} key={i} />
+                <Card {...movie} key={i} router={this.props.router} />
               )
             })
           }

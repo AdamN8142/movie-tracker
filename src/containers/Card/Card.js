@@ -20,13 +20,11 @@ class Card extends Component {
   } 
   handleToggleFavorite = (e) => {
     if(!this.props.user.name) {
-      alert('please sign in')
+      this.props.router.history.push('/signin')
     } else if (this.props.user.name && this.props.favorite === true) {
-      // console.log('hi')
       deleteFavorites(this.props.id, this.props.user.id)
       this.props.changeFavorite(this.props.id)
     } else {
-      // console.log('hi')
       addFavorites(
         this.props.id, 
         this.props.user.id, 
@@ -38,7 +36,6 @@ class Card extends Component {
         )
       this.props.changeFavorite(this.props.id)
     }
-    // this.setState({ update: !this.state.update})
   }
 
   render(){
@@ -46,7 +43,7 @@ class Card extends Component {
     const favImg = this.props.favorite ? 'fas fa-heart' : 'far fa-heart'
     return (
       <div>
-        <img className="movie-img" alt={`${this.props.title} movie poster`} src={`https://image.tmdb.org/t/p/w500${this.props.poster_path}`}/>
+        <img className="movie-img" alt={`${this.props.title} movie poster`} onClick={() => {this.props.router.history.push(`/movie/${this.props.id}`)}} src={`https://image.tmdb.org/t/p/w500${this.props.poster_path}`}/>
         <i className={favImg} onClick={this.handleToggleFavorite}></i>
       </div>
     )

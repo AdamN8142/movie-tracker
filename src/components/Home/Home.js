@@ -2,11 +2,11 @@ import React from 'react'
 import CardContainer from '../../containers/CardContainer/CardContainer'
 import Header from '../../containers/Header/Header'
 
-export default function Main() {
+export default function Main(props) {
   return(
     <div>
       <Header />
-      <CardContainer />
+      <CardContainer router={{...props}} />
     </div>
   )
 }

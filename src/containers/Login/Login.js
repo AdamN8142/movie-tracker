@@ -24,7 +24,7 @@ class Login extends Component {
   handleNewUser = (e) => {
     e.preventDefault()
     postNewUser(this.state.name, this.state.email, this.state.password)
-    console.log('hi')
+    this.props.history.push('/')
   }
 
   handleSignIn = async (e) => {
@@ -36,19 +36,17 @@ class Login extends Component {
     } 
     else if(response.status === 'success') {
       this.props.saveLogin(response)
-      this.props.history.push('/')
       this.fetchFavorites(this.props.user.id)
+      this.props.history.push('/')
     }
   }
 
   signOutHandler = (e) => {
     e.preventDefault()
-    // const emptyObj = {}
     this.props.signOut()
   }
 
   fetchFavorites = (id) => {
-    console.log('FF')
     const url = `http://localhost:3000/api/users/${id}/favorites`
     fetch(url)
       .then(response => response.json())
