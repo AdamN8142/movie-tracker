@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { toggleFavorite, changeFavorite } from '../../actions'
 import { addFavorites, deleteFavorites } from '../../utilities/api'
 
-class Card extends Component {
+export class Card extends Component {
   constructor(){
     super()
     this.state = {
