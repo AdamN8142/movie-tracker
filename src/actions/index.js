@@ -18,6 +18,11 @@ export const toggleFavorite = (favorite) => ({
   favorite
 })
 
+export const changeFavorite = (id) => ({
+  type: 'CHANGE_FAVORITE',
+  id
+})
+
 export const setCategory = (category) => ({
   type: 'SET_CATEGORY',
   category 
@@ -26,5 +31,4 @@ export const setCategory = (category) => ({
 export const grabFavorites = (favorites) => ({
   type: 'GRAB_FAVORITES',
   favorites
-
 })
