@@ -1,28 +1,55 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addMovies, grabFavorites } from '../../actions';
+import { addMovies, grabFavorites, toggleFavorite } from '../../actions';
 import { NavLink } from 'react-router-dom'
 import { apiKey } from '../../utilities/apiKey.js';
 import Card from '../Card/Card'
 import './CardContainer.css'
 
-  class CardContainer extends Component {
+  export class CardContainer extends Component {
     constructor() {
       super();
       this.state = {
         favorites:false,
         favArr: []
       }
-  }
-
-  componentDidMount() {
-    this.fetchMovies();
-  }
-
-  componentDidUpdate() {
-    if(!this.props.favorites && this.props.user.id){
-      this.fetchFavorites(this.props.user.id)
     }
+    
+    async componentDidMount() {
+      await this.fetchMovies();
+      this.matchFavorites()
+  }
+
+  // componentDidUpdate() {
+  //   if(!this.props.favorites && this.props.user.id){
+  //     this.fetchFavorites(this.props.user.id)
+  //   }
+  // }
+
+  matchFavorites = () => {
+    // console.log(this.props.movies)
+    let favArr = [];
+    this.props.movies.forEach((movie) => {
+      // console.log('movie', movie)
+
+
+      this.props.favorites.forEach((fav) => {
+        // console.log('mov', movie)
+
+        // console.log('id', movie.id)
+        // console.log('f', fav.movie_id)
+        if(movie.id === fav.movie_id) {
+          // console.log(movie)
+          favArr.push(movie) 
+        }
+      })
+      // console.log('matchingFav', matchingFav)
+      
+
+
+    })
+    this.props.toggleFavorite(favArr)
+    
   }
 
   showAllFavorites = () => {
@@ -63,14 +90,13 @@ import './CardContainer.css'
     } else {
       moviesToShow = this.props.movies
     }
-      return moviesToShow.map((movie) => {
-        return (
-          <Card movie={movie} key={movie.id} />
-        )
-      })
+    return moviesToShow;
   }
 
   render(){ 
+
+    let moviesToShow = this.displayCards();
+
     return (
       <div>
         <nav className= 'nav-bar'>
@@ -80,7 +106,14 @@ import './CardContainer.css'
             <NavLink to='/signin' className='nav'>Sign In</NavLink>
           </nav>
         <div className = 'card-container'>
-            {this.displayCards()}
+          {
+            moviesToShow.length && 
+            moviesToShow.map((movie, i) => {
+              return (
+                <Card {...movie} key={i} />
+              )
+            })
+          }
         </div>
       </div>
     )
@@ -95,7 +128,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addMovies: (movies) => dispatch(addMovies(movies)),
-  grabFavorites: (favorites) => dispatch(grabFavorites(favorites))
+  grabFavorites: (favorites) => dispatch(grabFavorites(favorites)),
+  toggleFavorite: (movie) => dispatch(toggleFavorite(movie))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardContainer)

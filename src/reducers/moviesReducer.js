@@ -5,16 +5,19 @@ export const moviesReducer = (state = [], action) => {
         return {...movie, favorite: false}
       })
     case 'TOGGLE_FAVORITE':
-      console.log(action.favorite)
       return state.map((movie)=> {
-        if(movie.id == action.favorite) {
-          console.log(movie.id);
-          console.log(movie);
-          return {...movie, movie_id:movie.id, favorite:!movie.favorite }
-        } else {
-          return movie
-        }
-      }) 
+        action.favorite.forEach((fav) => {
+          if(movie.id === fav.id) {
+            movie.favorite = !movie.favorite
+          } 
+        })
+          return {...movie}
+        }) 
+    case 'CHANGE_FAVORITE':
+        let favMovie = state.find(movie => action.id === movie.id)
+        favMovie.favorite = !favMovie.favorite
+        // console.log(favMovie)
+        return [...state]
     default:
       return state  
   }

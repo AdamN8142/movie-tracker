@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { postNewUser, signInUser } from '../../utilities/api'
 import { connect } from 'react-redux'
-import { saveLogin, signOut } from '../../actions/index'
+import { saveLogin, signOut, grabFavorites } from '../../actions/index'
 import './Login.css'
+// import { apiKey } from '../../utilities/apiKey'
 
 class Login extends Component {
   constructor(){
@@ -36,6 +37,7 @@ class Login extends Component {
     else if(response.status === 'success') {
       this.props.saveLogin(response)
       this.props.history.push('/')
+      this.fetchFavorites(this.props.user.id)
     }
   }
 
@@ -43,6 +45,14 @@ class Login extends Component {
     e.preventDefault()
     // const emptyObj = {}
     this.props.signOut()
+  }
+
+  fetchFavorites = (id) => {
+    console.log('FF')
+    const url = `http://localhost:3000/api/users/${id}/favorites`
+    fetch(url)
+      .then(response => response.json())
+      .then(results => this.props.grabFavorites(results.data))
   }
 
   render() {
@@ -76,14 +86,15 @@ class Login extends Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   user: 
-// }
+const mapStateToProps = (state) => ({
+  user: state.user
+})
 
 const mapDispatchToProps = (dispatch) => ({
   saveLogin: (user) => dispatch(saveLogin(user)),
-  signOut: (user) => dispatch(signOut(user))
+  signOut: (user) => dispatch(signOut(user)),
+  grabFavorites: (favorite) => dispatch(grabFavorites(favorite))
 })
 
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

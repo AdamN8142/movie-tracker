@@ -2,50 +2,54 @@ import React, { Component } from 'react'
 import { apiKey } from '../../utilities/apiKey'
 import './Card.css'
 import { connect } from 'react-redux'
-import { toggleFavorite } from '../../actions'
+import { toggleFavorite, changeFavorite } from '../../actions'
 import { addFavorites, deleteFavorites } from '../../utilities/api'
 
 class Card extends Component {
-
+  constructor(){
+    super()
+    this.state = {
+      update: false
+    }
+  }
+  fetchFavorites = (id) => {
+    const url = `http://localhost:3000/api/users/${id}/favorites`
+    fetch(url)
+      .then(response => response.json())
+      .then(results => this.props.grabFavorites(results.data))
+  } 
   handleToggleFavorite = (e) => {
     if(!this.props.user.name) {
       alert('please sign in')
-    } else if (this.props.user.name && this.props.movie.favorite === true) {
-      console.log('hi')
-      deleteFavorites(this.props.movie.movie_id, this.props.user.id)
-      this.props.toggleFavorite(this.props.movie.id)
+    } else if (this.props.user.name && this.props.favorite === true) {
+      // console.log('hi')
+      deleteFavorites(this.props.id, this.props.user.id)
+      this.props.changeFavorite(this.props.id)
     } else {
-      console.log('hi')
+      // console.log('hi')
       addFavorites(
-        this.props.movie.id, 
+        this.props.id, 
         this.props.user.id, 
-        this.props.movie.title,
-        this.props.movie.poster_path,
-        this.props.movie.release_date,
-        this.props.movie.vote_average,
-        this.props.movie.overview
+        this.props.title,
+        this.props.poster_path,
+        this.props.release_date,
+        this.props.vote_average,
+        this.props.overview
         )
-      this.props.toggleFavorite(this.props.movie.id)
+      this.props.changeFavorite(this.props.id)
     }
+    // this.setState({ update: !this.state.update})
   }
 
   render(){
-    if(this.props.movie.favorite) {
-      return (
-        <div>
-          <img name={this.props.movie.id} className="movie-img" alt={`${this.props.movie.title}movie poster`} src={`https://image.tmdb.org/t/p/w500${this.props.movie.poster_path}`}/>
-          <i className="fas fa-heart" onClick={this.handleToggleFavorite}></i>
-        </div>
-      )
-    }
-    if(!this.props.movie.favorite) {
-      return (
-        <div>
-          <img className="movie-img" alt={`${this.props.movie.title}movie poster`} src={`https://image.tmdb.org/t/p/w500${this.props.movie.poster_path}`} />
-          <i className="far fa-heart" onClick={this.handleToggleFavorite} ></i>
-        </div>
-      )
-    }
+    // const { id, favorite, title, poster_path} = this.props.movie;
+    const favImg = this.props.favorite ? 'fas fa-heart' : 'far fa-heart'
+    return (
+      <div>
+        <img className="movie-img" alt={`${this.props.title} movie poster`} src={`https://image.tmdb.org/t/p/w500${this.props.poster_path}`}/>
+        <i className={favImg} onClick={this.handleToggleFavorite}></i>
+      </div>
+    )
   }
 }
 
@@ -54,7 +58,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    toggleFavorite: (favorite) => dispatch(toggleFavorite(favorite))
+    toggleFavorite: (favorite) => dispatch(toggleFavorite(favorite)),
+    changeFavorite: (favorite) => dispatch(changeFavorite(favorite))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card)
