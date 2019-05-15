@@ -23,8 +23,10 @@ describe('CardContainer', () => {
     "backdrop_path": "/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
     "adult": false,
     "overview": "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.",
-    "release_date": "2019-04-24"
+    "release_date": "2019-04-24",
+    "favorite": true
   }]
+
   let mockFavoritesArray = [{
     "vote_count": 4354,
     "id": 299534,
@@ -43,7 +45,8 @@ describe('CardContainer', () => {
     "backdrop_path": "/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
     "adult": false,
     "overview": "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.",
-    "release_date": "2019-04-24"
+    "release_date": "2019-04-24",
+    "favorite": true
   }]
   let mockMovies = [{
     "vote_count": 4354,
@@ -63,7 +66,8 @@ describe('CardContainer', () => {
     "backdrop_path": "/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
     "adult": false,
     "overview": "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.",
-    "release_date": "2019-04-24"
+    "release_date": "2019-04-24",
+    "favorite": true
   }, {
     "vote_count": 4354,
     "id": 299535,
@@ -82,7 +86,8 @@ describe('CardContainer', () => {
     "backdrop_path": "/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
     "adult": false,
     "overview": "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.",
-    "release_date": "2019-04-24"
+    "release_date": "2019-04-24",
+      "favorite": false
   }]
 
   let mockUser = {id: 1, name:'dude'}
@@ -90,11 +95,20 @@ describe('CardContainer', () => {
   let moviesToShow
 
   let mockToggleFavorite = jest.fn()
+  
+  let mockFetchFavorites = jest.fn()
 
-  let preventDefault = () => jest.fn()
-
+  let mockUrl
+  
+  
+  
   beforeEach(() => {
     wrapper = shallow(<CardContainer user={mockUser} movies={mockMovies} favorites={mockFavorites} toggleFavorite={mockToggleFavorite} />)
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve(mockMovies)
+    }))
+    mockUrl = 'adam.adam.adam.com'
   })
   
   it('should match snapshot', () => {
@@ -116,12 +130,42 @@ describe('CardContainer', () => {
       favorites: true
     }
 
-    // wrapper.state({favorites: false})
-    // const mockEvent = {preventDefault: jest.fn()}
     wrapper.instance().showAllFavorites()
 
-    // wrapper.find()
 
     expect(wrapper.state()).toEqual(expected)
+  })
+
+  it('should call fetchFavorites in show all favorites', () => {
+    const spy = jest.spyOn(wrapper.instance(), 'fetchFavorites')
+    wrapper.instance().showAllFavorites()
+
+    expect(spy).toHaveBeenCalled()
+  })
+
+  it('should change state to false when showAllMovies is called ', () => {
+    wrapper.state({favorites: true})
+
+    wrapper.instance().showAllMovies()
+
+    expect(wrapper.state()).toEqual({favorites: false})
+  })
+
+  it.skip('should call fetchMovies with the correct URL', () => {
+    wrapper.instance().fetchMovies();
+    expect(wrapper.instance().fetchMovies()).toHaveBeenCalled()
+  })
+
+  it('should reassign movies to show to mock movies', () => {
+    const expected =wrapper.instance().displayCards();
+
+    expect(expected).toEqual(mockMovies)
+  })
+
+  it('should reassign movies to show to mock favorites', () => {
+    wrapper.instance().showAllFavorites()
+    const expected =wrapper.instance().displayCards();
+
+    expect(expected).toEqual(mockFavoritesArray)
   })
 })

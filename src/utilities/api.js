@@ -31,7 +31,6 @@ export const signInUser = (email, password) => {
 }
 
 export const addFavorites = (movie_id, user_id, title, poster_path, release_date, vote_average, overview) => {
-  console.log('added')
   fetch('http://localhost:3000/api/users/favorites/new', {
     method: 'POST',
     body: JSON.stringify({

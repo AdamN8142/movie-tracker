@@ -3,7 +3,7 @@ import { postNewUser, signInUser } from '../../utilities/api'
 import { connect } from 'react-redux'
 import { saveLogin, signOut, grabFavorites } from '../../actions/index'
 import './Login.css'
-// import { apiKey } from '../../utilities/apiKey'
+import PropTypes from 'prop-types'
 
 export class Login extends Component {
   constructor(){
@@ -109,3 +109,10 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
+
+Login.propTypes = {
+  user: PropTypes.object,
+  saveLogin: PropTypes.func,
+  signOut: PropTypes.func,
+  grabFavorites: PropTypes.func
+}
