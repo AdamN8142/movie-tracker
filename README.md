@@ -13,6 +13,8 @@
 
 ![IMG_8640](https://user-images.githubusercontent.com/40923979/57746050-c68ae080-768c-11e9-8ea5-909ef89e2029.jpg)
 
+# DTR 
+https://gist.github.com/AdamN8142/7fab532cc6b70232912acd3ff9dbe884
 
 ## Directions 
 
