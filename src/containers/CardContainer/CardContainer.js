@@ -32,8 +32,10 @@ import PropTypes from 'prop-types'
     this.props.toggleFavorite(favArr)  
   }
 
-  showAllFavorites = () => {
-    const {user, router} = this.props
+  showAllFavorites = (e) => {
+    const {user, router,} = this.props
+    e.preventDefault()
+
     if(user.id) {
       this.setState({
         favorites: true
