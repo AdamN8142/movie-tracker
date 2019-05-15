@@ -117,11 +117,11 @@ describe('CardContainer', () => {
     }
 
     // wrapper.state({favorites: false})
-    const mockEvent = {preventDefault: jest.fn()}
-    wrapper.instance().showAllFAvorites()
+    // const mockEvent = {preventDefault: jest.fn()}
+    wrapper.instance().showAllFavorites()
 
-    wrapper.find()
+    // wrapper.find()
 
-    expect(wrapper.state('favorites')).toEqual({expected})
+    expect(wrapper.state()).toEqual(expected)
   })
 })
