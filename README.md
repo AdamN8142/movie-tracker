@@ -1,68 +1,19 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MovieTracker 
 
-## Available Scripts
+## MovieTracker is an app that allows users to browse and favorite the most popular current movies! The app runs off of an The Movie Database API, so the user will be shown an updated list of popular movies! 
 
-In the project directory, you can run:
 
-### `npm start`
+## Home
+<img width="1427" alt="Screen Shot 2019-05-14 at 9 01 26 PM" src="https://user-images.githubusercontent.com/40923979/57745780-ad356480-768b-11e9-93bf-87a9369085de.png">
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Sign-in
+<img width="834" alt="Screen Shot 2019-05-14 at 9 04 44 PM" src="https://user-images.githubusercontent.com/40923979/57745844-f980a480-768b-11e9-8ac1-b5b33e48d1bb.png">
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## WireFrame
 
-### `npm test`
+![IMG_8640](https://user-images.githubusercontent.com/40923979/57746050-c68ae080-768c-11e9-8ea5-909ef89e2029.jpg)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Directions 
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### MovieTracker is a great tool to find more information on popular movies out now. As a user, you can create an account and save all of your favorite movies in a conventient reference to use for your next movie night. When a user selects a film, they will be shown details of the plot as well as release date critic rating!  
