@@ -31,9 +31,9 @@ import './CardContainer.css'
     this.props.toggleFavorite(favArr)  
   }
 
-  showAllFavorites = (e) => {
+  showAllFavorites = () => {
     const {user, router} = this.props
-    e.preventDefault()
+    // e.preventDefault()
     if(user.id) {
       this.setState({
         favorites: true
