@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './ExpandedCard.css'
+import PropTypes from 'prop-types'
 
 export default class ExpandedCard extends Component {
 
@@ -21,4 +22,11 @@ export default class ExpandedCard extends Component {
       </div>
     )
   }
-  }
+}
+
+ExpandedCard.propTypes = {
+  title: PropTypes.string, 
+  backdrop_path: PropTypes.string, 
+  release_date: PropTypes.string, 
+  overview: PropTypes.string
+}

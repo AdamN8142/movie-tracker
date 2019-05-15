@@ -3,6 +3,7 @@ import './Card.css'
 import { connect } from 'react-redux'
 import { toggleFavorite, changeFavorite } from '../../actions'
 import { addFavorites, deleteFavorites } from '../../utilities/api'
+import PropTypes from 'prop-types'
 
 export class Card extends Component {
 
@@ -12,6 +13,7 @@ export class Card extends Component {
       .then(response => response.json())
       .then(results => this.props.grabFavorites(results.data))
   } 
+  
   handleToggleFavorite = (e) => {
     const {user, router, favorite, id, title, poster_path, release_date, vote_average, overview} = this.props
     if(!user.name) {
@@ -55,3 +57,16 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card)
+
+Card.propTypes = {
+  user: PropTypes.object,
+  toggleFavorite: PropTypes.func,
+  changeFavorite: PropTypes.func,
+  favorite: PropTypes.bool,
+  id: PropTypes.number, 
+  title: PropTypes.string, 
+  poster_path: PropTypes.string, 
+  release_date: PropTypes.string, 
+  vote_average: PropTypes.number, 
+  overview: PropTypes.string
+}

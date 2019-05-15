@@ -4,6 +4,7 @@ import Home from '../../components/Home/Home';
 import ExpandedCard from '../ExpandedCard/ExpandedCard';
 import { connect } from 'react-redux'
 import { Switch, Route, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
 export class App extends Component {
 
@@ -32,3 +33,7 @@ const mapStateToProps = (state) => ({
 })
 
 export default withRouter(connect(mapStateToProps)(App))
+
+App.propTypes = {
+  movies: PropTypes.array
+}

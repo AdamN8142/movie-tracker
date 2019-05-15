@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { apiKey } from '../../utilities/apiKey.js';
 import Card from '../Card/Card'
 import './CardContainer.css'
+import PropTypes from 'prop-types'
 
   export class CardContainer extends Component {
     constructor() {
@@ -33,7 +34,6 @@ import './CardContainer.css'
 
   showAllFavorites = () => {
     const {user, router} = this.props
-    // e.preventDefault()
     if(user.id) {
       this.setState({
         favorites: true
@@ -59,7 +59,7 @@ import './CardContainer.css'
   
   fetchFavorites = (id) => {
     const url = `http://localhost:3000/api/users/${id}/favorites`
-    fetch(url)
+    return fetch(url)
     .then(response => response.json())
     .then(results => this.props.grabFavorites(results.data))
   }
@@ -121,4 +121,15 @@ const mapDispatchToProps = (dispatch) => ({
   toggleFavorite: (movie) => dispatch(toggleFavorite(movie))
 })
 
+
+
 export default connect(mapStateToProps, mapDispatchToProps)(CardContainer)
+
+CardContainer.propTypes = {
+  addMovies: PropTypes.func,
+  grabFavorites: PropTypes.func,
+  toggleFavorite: PropTypes.func,
+  movies: PropTypes.array,
+  user: PropTypes.object,
+  favorites: PropTypes.array
+}
