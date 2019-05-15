@@ -90,7 +90,6 @@ export class Login extends Component {
         </div>
         </form>
         </div>
-        <button onClick={this.signOutHandler}>SIGN OUT</button>
         </div>
       )
     }
