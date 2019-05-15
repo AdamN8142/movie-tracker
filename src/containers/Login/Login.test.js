@@ -9,12 +9,12 @@ describe('Login', () => {
   beforeEach(() => {
   })
   
-  it('should match snapshot', () => {
+  it.skip('should match snapshot', () => {
     wrapper = shallow(<Login/>)
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should match default state', () => {
+  it.skip('should match default state', () => {
     expect(wrapper.state()).toEqual({
       name: '',
       email: '',
