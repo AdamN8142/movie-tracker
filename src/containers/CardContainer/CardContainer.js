@@ -33,7 +33,7 @@ import './CardContainer.css'
 
   showAllFavorites = (e) => {
     const {user, router} = this.props
-    e.preventDefault()
+    // e.preventDefault()
     if(user.id) {
       this.setState({
         favorites: true
