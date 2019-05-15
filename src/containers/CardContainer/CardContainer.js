@@ -89,13 +89,19 @@ import './CardContainer.css'
           </nav>
         <div className = 'card-container'>
           {
-            //need to replace moviesToShow.length with loading screen
-            moviesToShow.length && 
+            moviesToShow.length > 0 && 
             moviesToShow.map((movie, i) => {
               return (
                 <Card {...movie} key={i} router={this.props.router} />
               )
             })
+          }
+                    {
+            moviesToShow.length === 0 && 
+           (<div>
+             <p className="no-favorites">You currently have no favorites</p>
+          </div>)
+
           }
         </div>
       </div>
