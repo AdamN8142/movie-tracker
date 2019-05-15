@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 export default class ExpandedCard extends Component {
 
   returnToMovies = () => {
-  
     this.props.history.push('/')
   }
+  
   render() {
     const {title, backdrop_path, release_date, overview} = this.props
     return (
